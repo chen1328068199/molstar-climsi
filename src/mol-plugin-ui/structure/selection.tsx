@@ -370,6 +370,7 @@ class ApplyThemeControls extends PurePluginUIComponent<ApplyThemeControlsProps, 
     state = { values: ParamDefinition.getDefaultValues(this.params) };
 
     apply = () => {
+        console.log(this.state.values, this.plugin.managers.structure.hierarchy.current.structures);
         this.plugin.managers.structure.component.applyTheme(this.state.values, this.plugin.managers.structure.hierarchy.current.structures);
         this.props.onApply?.();
     };

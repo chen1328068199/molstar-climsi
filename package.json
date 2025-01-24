@@ -1,14 +1,14 @@
 {
-  "name": "molstar",
-  "version": "4.10.0",
+  "name": "molstar-climsi",
+  "version": "4.10.1",
   "description": "A comprehensive macromolecular library.",
-  "homepage": "https://github.com/molstar/molstar#readme",
+  "homepage": "https://github.com/chen1328068199/molstar-climsi#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/molstar/molstar.git"
+    "url": "https://github.com/chen1328068199/molstar-climsi"
   },
   "bugs": {
-    "url": "https://github.com/molstar/molstar/issues"
+    "url": "https://github.com/chen1328068199/molstar-climsi/issues"
   },
   "scripts": {
     "lint": "eslint .",

@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2019-2023 mol* contributors, licensed under MIT, See LICENSE file for more info.
+ * //侧边菜单栏
  *
  * @author David Sehnal <david.sehnal@gmail.com>
  * @author Alexander Rose <alexander.rose@weirdbyte.de>
@@ -14,12 +15,13 @@ import { StateTransform } from '../mol-state';
 import { ParamDefinition as PD } from '../mol-util/param-definition';
 import { PluginUIComponent } from './base';
 import { IconButton, SectionHeader } from './controls/common';
-import { AccountTreeOutlinedSvg, DeleteOutlinedSvg, HelpOutlineSvg, HomeOutlinedSvg, SaveOutlinedSvg, TuneSvg } from './controls/icons';
+import { AccountTreeOutlinedSvg, DeleteOutlinedSvg, HomeOutlinedSvg } from './controls/icons';
+// import { AccountTreeOutlinedSvg, DeleteOutlinedSvg, HelpOutlineSvg, HomeOutlinedSvg, SaveOutlinedSvg, TuneSvg } from './controls/icons';
 import { ParameterControls } from './controls/parameters';
 import { StateObjectActions } from './state/actions';
-import { RemoteStateSnapshots, StateSnapshots } from './state/snapshots';
+// import { RemoteStateSnapshots, StateSnapshots } from './state/snapshots';
 import { StateTree } from './state/tree';
-import { HelpContent } from './viewport/help';
+// import { HelpContent } from './viewport/help';
 
 export class CustomImportControls extends PluginUIComponent<{ initiallyCollapsed?: boolean }> {
     componentDidMount() {
@@ -68,24 +70,24 @@ export class LeftPanelControls extends PluginUIComponent<{}, { tab: LeftPanelTab
     tabs: { [K in LeftPanelTabName]: JSX.Element } = {
         'none': <></>,
         'root': <>
-            <SectionHeader icon={HomeOutlinedSvg} title='Home' />
+            {/* <SectionHeader icon={HomeOutlinedSvg} title='Home' /> */}
             <StateObjectActions state={this.plugin.state.data} nodeRef={StateTransform.RootRef} hideHeader={true} initiallyCollapsed={true} alwaysExpandFirst={true} />
-            <CustomImportControls />
-            {this.plugin.spec.components?.remoteState !== 'none' && <RemoteStateSnapshots listOnly /> }
+            {/* <CustomImportControls /> */}
+            {/* {this.plugin.spec.components?.remoteState !== 'none' && <RemoteStateSnapshots listOnly /> } */}
         </>,
         'data': <>
             <SectionHeader icon={AccountTreeOutlinedSvg} title={<><RemoveAllButton /> State Tree</>} />
             <StateTree state={this.plugin.state.data} />
         </>,
-        'states': <StateSnapshots />,
-        'settings': <>
-            <SectionHeader icon={TuneSvg} title='Plugin Settings' />
-            <FullSettings />
-        </>,
-        'help': <>
-            <SectionHeader icon={HelpOutlineSvg} title='Help' />
-            <HelpContent />
-        </>
+        // 'states': <StateSnapshots />,
+        // 'settings': <>
+        //     <SectionHeader icon={TuneSvg} title='Plugin Settings' />
+        //     <FullSettings />
+        // </>,
+        // 'help': <>
+        //     <SectionHeader icon={HelpOutlineSvg} title='Help' />
+        //     <HelpContent />
+        // </>
     };
 
     render() {
@@ -95,11 +97,11 @@ export class LeftPanelControls extends PluginUIComponent<{}, { tab: LeftPanelTab
             <div className='msp-left-panel-controls-buttons'>
                 <IconButton svg={HomeOutlinedSvg} toggleState={tab === 'root'} transparent onClick={() => this.set('root')} title='Home' />
                 <DataIcon set={this.set} />
-                <IconButton svg={SaveOutlinedSvg} toggleState={tab === 'states'} transparent onClick={() => this.set('states')} title='Plugin State' />
-                <IconButton svg={HelpOutlineSvg} toggleState={tab === 'help'} transparent onClick={() => this.set('help')} title='Help' />
-                <div className='msp-left-panel-controls-buttons-bottom'>
+                {/* <IconButton svg={SaveOutlinedSvg} toggleState={tab === 'states'} transparent onClick={() => this.set('states')} title='Plugin State' /> */}
+                {/* <IconButton svg={HelpOutlineSvg} toggleState={tab === 'help'} transparent onClick={() => this.set('help')} title='Help' /> */}
+                {/* <div className='msp-left-panel-controls-buttons-bottom'>
                     <IconButton svg={TuneSvg} toggleState={tab === 'settings'} transparent onClick={() => this.set('settings')} title='Settings' />
-                </div>
+                </div> */}
             </div>
             <div className='msp-scrollable-container'>
                 {this.tabs[tab]}

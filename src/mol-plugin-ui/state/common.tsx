@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2018 mol* contributors, licensed under MIT, See LICENSE file for more info.
- *
+ * //state 单个渲染
  * @author David Sehnal <david.sehnal@gmail.com>
  */
 
@@ -272,7 +272,6 @@ abstract class TransformControlBase<P, S extends TransformControlBase.ComponentS
     }
 
     render() {
-        // console.log('rendering', ((this.props as any)?.transform?.transformer || (this.props as any)?.action)?.definition.display.name, +new Date)
         return this.props.simpleApply ? this.renderSimple() : this.renderDefault();
     }
 }

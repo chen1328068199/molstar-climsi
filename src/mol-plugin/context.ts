@@ -127,7 +127,7 @@ export class PluginContext {
     readonly initialized = new Promise<void>((res, rej) => {
         this.initializedPromiseCallbacks = [res, rej];
     });
-
+ 
     get isInitialized() {
         return this._isInitialized;
     }

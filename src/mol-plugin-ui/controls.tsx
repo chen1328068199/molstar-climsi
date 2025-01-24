@@ -27,6 +27,9 @@ import { PluginConfig } from '../mol-plugin/config';
 import { StructureSuperpositionControls } from './structure/superposition';
 import { StructureQuickStylesControls } from './structure/quick-styles';
 
+import { OrderedSet } from '../mol-data/int';
+import { Structure, StructureElement, StructureProperties } from '../mol-model/structure';
+
 export class TrajectoryViewportControls extends PluginUIComponent<{}, { show: boolean, label: string }> {
     state = { show: false, label: '' };
 
@@ -343,5 +346,22 @@ export class DefaultStructureTools extends PluginUIComponent {
 
             <CustomStructureControls />
         </>;
+    }
+}
+
+
+import { CustomResidueColorThemeProvider } from './custom/CustomTheme';
+export class HydrophobicityLabelControls extends PluginUIComponent {
+
+    runTask = () => {
+        // 判断是否有主题没有则添加自定义主题
+        if (!this.plugin.representation.structure.themes.colorThemeRegistry.has(CustomResidueColorThemeProvider)) this.plugin.representation.structure.themes.colorThemeRegistry.add(CustomResidueColorThemeProvider);
+        this.plugin.managers.structure.hierarchy.selection.structures[0].components.forEach(component=>{
+            this.plugin.managers.structure.component.updateRepresentationsTheme([component], { color: 'custom-residue', defaultValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } );
+        });
+    };
+
+    render() {
+        return <div onClick={this.runTask}>Hydrophobicity</div>;
     }
 }

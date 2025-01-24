@@ -11,7 +11,7 @@ import * as React from 'react';
 import { formatTime } from '../mol-util';
 import { LogEntry } from '../mol-util/log-entry';
 import { PluginReactContext, PluginUIComponent } from './base';
-import { AnimationViewportControls, DefaultStructureTools, LociLabels, StateSnapshotViewportControls, TrajectoryViewportControls, SelectionViewportControls, ViewportSnapshotDescription } from './controls';
+import { AnimationViewportControls,HydrophobicityLabelControls, DefaultStructureTools, LociLabels, StateSnapshotViewportControls, TrajectoryViewportControls, SelectionViewportControls, ViewportSnapshotDescription } from './controls';
 import { LeftPanelControls } from './left-panel';
 import { SequenceView } from './sequence';
 import { BackgroundTaskProgress, OverlayTaskProgress } from './task';
@@ -274,6 +274,7 @@ export class DefaultViewport extends PluginUIComponent {
             <Viewport />
             <div className='msp-viewport-top-left-controls'>
                 <AnimationViewportControls />
+                <HydrophobicityLabelControls />
                 <TrajectoryViewportControls />
                 <StateSnapshotViewportControls />
                 <SnapshotDescription />

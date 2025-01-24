@@ -39,17 +39,17 @@ export const PluginConfig = {
         ResolutionMode: item<'auto' | 'scaled' | 'native'>('plugin-config.resolution-mode', 'auto'),
     },
     State: {
-        DefaultServer: item('plugin-state.server', 'https://webchem.ncbr.muni.cz/molstar-state'),
-        CurrentServer: item('plugin-state.server', 'https://webchem.ncbr.muni.cz/molstar-state'),
+        DefaultServer: item('plugin-state.server', ''),
+        CurrentServer: item('plugin-state.server', ''),
         HistoryCapacity: item('history-capacity.server', 5)
     },
     VolumeStreaming: {
         Enabled: item('volume-streaming.enabled', true),
-        DefaultServer: item('volume-streaming.server', 'https://ds.litemol.org'),
+        DefaultServer: item('volume-streaming.server', ''),
         CanStream: item('volume-streaming.can-stream', (s: Structure, plugin: PluginContext) => {
             return s.models.length === 1 && Model.probablyHasDensityMap(s.models[0]);
         }),
-        EmdbHeaderServer: item('volume-streaming.emdb-header-server', 'https://files.wwpdb.org/pub/emdb/structures'),
+        EmdbHeaderServer: item('volume-streaming.emdb-header-server', ''),
     },
     Viewport: {
         ShowExpand: item('viewer.show-expand-button', true),
