@@ -94,6 +94,10 @@ export const ColorLists = {
         '',
         [0xa50026, 0xd73027, 0xf46d43, 0xfdae61, 0xfee08b, 0xffffbf, 0xd9ef8b, 0xa6d96a, 0x66bd63, 0x1a9850, 0x006837]
     ),
+    'blue-green-white': ColorList('Blue-Green-White', 'qualitative',
+        '',
+        [0x43FFFF, 0xFFFA6F, 0xFFFFFF]
+    ),
     'red-blue': ColorList('Red-Blue', 'diverging',
         '',
         [0x67001f, 0xb2182b, 0xd6604d, 0xf4a582, 0xfddbc7, 0xf7f7f7, 0xd1e5f0, 0x92c5de, 0x4393c3, 0x2166ac, 0x053061]
